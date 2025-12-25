@@ -1,0 +1,95 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background: #1a1f2e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.admin-sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #2a2f3e;
+}
+
+.admin-sidebar-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.admin-welcome {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.admin-nav {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.admin-nav a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.admin-nav a:hover {
+  background: #2a2f3e;
+  color: white;
+  border-left-color: #667eea;
+}
+
+.admin-nav a.active {
+  background: #2a2f3e;
+  color: white;
+  border-left-color: #667eea;
+  font-weight: 600;
+}
+
+.admin-logout-btn {
+  margin: 1rem;
+  padding: 0.75rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.admin-logout-btn:hover {
+  background: #c82333;
+}
+
+.admin-content {
+  margin-left: 250px;
+  flex: 1;
+  padding: 2rem;
+  width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 200px;
+  }
+
+  .admin-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 1rem;
+  }
+}
+
