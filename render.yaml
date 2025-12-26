@@ -2,7 +2,7 @@ services:
   # 🔧 Backend API (Node + Express)
   - type: web
     name: gadget-backend
-    runtime: node
+    runtime: node20  # specify node version
     plan: free
     region: oregon
     rootDir: backend
@@ -12,17 +12,14 @@ services:
       # Environment
       - key: NODE_ENV
         value: production
-
       # Database (set in dashboard)
       - key: MONGODB_URI
         sync: false
-
       # Auth / Security (set in dashboard)
       - key: JWT_SECRET
         sync: false
       - key: SESSION_SECRET
         sync: false
-
       # CORS
       - key: CORS_ORIGIN
         value: https://gadget-frontend.onrender.com
@@ -38,12 +35,9 @@ services:
     envVars:
       - key: VITE_API_URL
         value: https://gadget-backend.onrender.com/api
-
       - key: VITE_APP_NAME
         value: Sergent Gadgets
-
       - key: VITE_CONTACT_EMAIL
         value: support@gadget-store.com
-
       - key: VITE_CONTACT_PHONE
         value: "+1 (555) 123-4567"
