@@ -2,7 +2,7 @@ services:
   # 🔧 Backend API (Node + Express)
   - type: web
     name: gadget-backend
-    runtime: node    # Changed from node18
+    runtime: node
     plan: free
     region: oregon
     rootDir: backend
@@ -10,7 +10,7 @@ services:
     startCommand: npm run start
     envVars:
       - key: NODE_VERSION
-        value: 18    # Define version here instead
+        value: 18
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
@@ -22,10 +22,9 @@ services:
       - key: CORS_ORIGIN
         value: https://gadget-frontend.onrender.com
 
-  # 🎨 Frontend (Vite Static Site)
-  - type: static      # Changed from web to static
-    name: gadget-frontend
-    runtime: static   # Added explicit runtime
+# 🎨 Frontend (Vite Static Site)
+static_sites:
+  - name: gadget-frontend
     plan: free
     region: oregon
     rootDir: frontend
