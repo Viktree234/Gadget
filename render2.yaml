@@ -1,0 +1,37 @@
+# Render service manifest for deploying the backend (Node) and frontend (Vite)
+# Customize env var values in the Render dashboard — DO NOT commit secrets here.
+
+services:
+  - type: web_service
+    name: gadget-backend
+    env: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: MONGODB_URI
+        value: ""
+      - key: JWT_SECRET
+        value: ""
+      - key: CORS_ORIGIN
+        value: ""
+
+  - type: static_site
+    name: gadget-frontend
+    env: node
+    plan: free
+    region: oregon
+    rootDir: workspace
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE
+        value: ""
+
+# Notes:
+# - Set `MONGODB_URI` to your MongoDB connection string (MongoDB Atlas or Render DB).
+# - Set `JWT_SECRET` to a secure value for production.
+# - Set `CORS_ORIGIN` to your frontend URL (e.g. https://gadget-frontend.onrender.com).
+# - Optionally set `VITE_API_BASE` to the backend base API URL (for the frontend to call).
