@@ -2,31 +2,30 @@ services:
   # 🔧 Backend API (Node + Express)
   - type: web
     name: gadget-backend
-    runtime: node18   # specify node version
+    runtime: node    # Changed from node18
     plan: free
     region: oregon
     rootDir: backend
     buildCommand: npm install
     startCommand: npm run start
     envVars:
-      # Environment
+      - key: NODE_VERSION
+        value: 18    # Define version here instead
       - key: NODE_ENV
         value: production
-      # Database (set in dashboard)
       - key: MONGODB_URI
         sync: false
-      # Auth / Security (set in dashboard)
       - key: JWT_SECRET
         sync: false
       - key: SESSION_SECRET
         sync: false
-      # CORS
       - key: CORS_ORIGIN
         value: https://gadget-frontend.onrender.com
 
   # 🎨 Frontend (Vite Static Site)
-  - type: web
+  - type: static      # Changed from web to static
     name: gadget-frontend
+    runtime: static   # Added explicit runtime
     plan: free
     region: oregon
     rootDir: frontend
