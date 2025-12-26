@@ -10,7 +10,7 @@ services:
     startCommand: npm run start
     envVars:
       - key: NODE_VERSION
-        value: 18
+        value: "18"
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
@@ -22,9 +22,10 @@ services:
       - key: CORS_ORIGIN
         value: https://gadget-frontend.onrender.com
 
-# 🎨 Frontend (Vite Static Site)
-static_sites:
-  - name: gadget-frontend
+  # 🎨 Frontend (Vite Static Site)
+  - type: static
+    name: gadget-frontend
+    runtime: static
     plan: free
     region: oregon
     rootDir: frontend
@@ -35,7 +36,3 @@ static_sites:
         value: https://gadget-backend.onrender.com/api
       - key: VITE_APP_NAME
         value: Sergent Gadgets
-      - key: VITE_CONTACT_EMAIL
-        value: support@gadget-store.com
-      - key: VITE_CONTACT_PHONE
-        value: "+1 (555) 123-4567"
