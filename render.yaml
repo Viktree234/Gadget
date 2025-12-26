@@ -26,7 +26,6 @@ services:
   - type: web
     name: gadget-frontend
     runtime: static
-    plan: free
     rootDir: workspace
     buildCommand: npm install && npm run build
     staticPublishPath: dist
