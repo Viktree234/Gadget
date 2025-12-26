@@ -27,8 +27,7 @@ services:
     name: gadget-frontend
     runtime: static
     plan: free
-    region: oregon
-    rootDir: frontend
+    rootDir: workspace
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
