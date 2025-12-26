@@ -2,7 +2,7 @@ services:
   # 🔧 Backend API (Node + Express)
   - type: web
     name: gadget-backend
-    runtime: node20  # specify node version
+    runtime: node18   # specify node version
     plan: free
     region: oregon
     rootDir: backend
