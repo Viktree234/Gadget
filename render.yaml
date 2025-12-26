@@ -28,7 +28,7 @@ services:
         value: https://gadget-frontend.onrender.com
 
   # 🎨 Frontend (Vite Static Site)
-  - type: static_site
+  - type: static
     name: gadget-frontend
     plan: free
     region: oregon
